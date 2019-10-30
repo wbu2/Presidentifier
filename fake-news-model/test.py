@@ -16,4 +16,13 @@ second and an accuracy of 92'''
 }
 
 #in real usage, backend would call this function, then serialize output into json
-print(orchestrate(example_usage))
+output = orchestrate(example_usage)
+for article in output:
+    url = article['url']
+    print(f'{url} scores:')
+
+    score_dict = article['score']
+    for attribute, weight in score_dict.items():
+        print(f'    {attribute}: {weight}')
+        
+    print()
