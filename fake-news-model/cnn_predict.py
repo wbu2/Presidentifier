@@ -20,7 +20,7 @@ from add_dict import AddDict
 Text = keras.preprocessing.text
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 warnings.filterwarnings("ignore", category=DeprecationWarning)
-model = keras.models.load_model('model.h5')
+model = keras.models.load_model('fake-news-model/model.h5')
 model._make_predict_function()
 
 
@@ -37,7 +37,7 @@ def preprocess_articles(article):
 
 
     def vectorize(text):
-        lookup = json.load(open('lookup234.json'))
+        lookup = json.load(open('fake-news-model/lookup234.json'))
 
         entry = keras.preprocessing.text.text_to_word_sequence(text)
 
