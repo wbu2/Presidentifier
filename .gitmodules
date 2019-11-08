@@ -1,0 +1,3 @@
+[submodule "semeval2019-hyperpartisan-bertha-von-suttner"]
+	path = semeval2019-hyperpartisan-bertha-von-suttner
+	url = https://github.com/GateNLP/semeval2019-hyperpartisan-bertha-von-suttner.git
