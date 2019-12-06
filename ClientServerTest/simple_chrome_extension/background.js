@@ -11,7 +11,7 @@ chrome.browserAction.onClicked.addListener(function() {
         alert('got response');
       }
     }
-    xhr.send("parsedText=wjqiejfpqejwf");
+    xhr.send("parsedText=Donald Trump is seeking reelection. I beileve he should win");
     // chrome.tabs.executeScript(null, {file: 'post.js'})
   });
 

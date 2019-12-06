@@ -3,16 +3,20 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 @app.route('/hyper_partisan', methods=['POST', 'GET'])
+def hyper_partisan():
+    if request.method == 'POST':
+        input = request.form.get('text')
+        return '<h1> donny is {} </h1>'.format(input)
 
-#def hyper_partisan():
- #   if request.method == 'POST':
-  #      input = request.form.get('text')
-   #     return '<h1> donny is {} </h1>'.format(input)
+    return '''<form method="POST"> 
+    parsed_text <input type = "text" name = "text">
+    <input type = "submit">
+    </form>'''
 
-    #return '''<form method="POST"> 
-    #parsed_text <input type = "text" name = "text">
-    #<input type = "submit">
-    #</form>'''
+@app.route('/homepage', methods = ['POST', 'GET'])
+def fetch_homepage():
+    return render_template("home.html")
+
 
 @app.route('/json', methods = ['POST', 'GET'])
 def handle_json():
