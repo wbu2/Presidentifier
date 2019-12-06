@@ -1,8 +1,19 @@
 from flask import Flask, request, jsonify
+from model import model
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/hyper_partisan', methods=['POST', 'GET'])
+
+@application.route('/', methods=['GET'])
+def home_page():
+    return will_stuff
+
+
+@application.route('/website_input', methods=['POST'])
+def handle_website_input():
+    # grab the input
+    return model(inp)
+
 
 #def hyper_partisan():
  #   if request.method == 'POST':
@@ -14,7 +25,7 @@ app = Flask(__name__)
     #<input type = "submit">
     #</form>'''
 
-@app.route('/json', methods = ['POST', 'GET'])
+@application.route('/json', methods = ['POST'])
 def handle_json():
     print("GOT A POST")
     print(request.form)
@@ -25,4 +36,4 @@ def handle_json():
 
 
 if __name__ == '__main__':
-    app.run(debug = True, port=8088)
+    application.run(debug = True, port=8088)
