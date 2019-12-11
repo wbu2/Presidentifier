@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, render_template
-from model import model
 from scraper import handleURL
 import json
+from match_my_voice import Model
 
 application = Flask(__name__)
 
@@ -33,22 +33,23 @@ def hyper_partisan():
 def fetch_homepage():
     return render_template("index.html")
 
-
 @application.route('/json', methods = ['POST'])
 def handle_json():
     # data = request.form
     data = json.loads(request.get_data())
     parsedText = data['parsedText']
     text = handle_url(parsedText)
-    return text
+    user = model(text)
+    return user
 
 def handle_url(url):
     text = handleURL(url)
     return text
 
-# def model(text):
-#     bias = model(text)
-#     return bias
+def model(text):
+    us = Model()
+    user = us.predict(text)
+    return user
 
 if __name__ == '__main__':
     application.run(debug = True, port=8088)
