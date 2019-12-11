@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import csv
 
-class Useless:
+class Model:
     
     def __init__(self):
         path_to_train = "tweets.csv"
