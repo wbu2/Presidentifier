@@ -4,7 +4,7 @@
 # In[1]:
 
 
-from match_my_voice import Model
+from match_my_voice_model import Model
 
 
 # In[2]:
