@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 from model import model
-from webscraper import parse_text_url
+from scraper import handleURL
+import json
 
 application = Flask(__name__)
 
@@ -35,19 +36,19 @@ def fetch_homepage():
 
 @application.route('/json', methods = ['POST'])
 def handle_json():
-    print("GOT A POST")
-    print(request.form)
-    data = request.form
-    # data = request.get_json()
+    # data = request.form
+    data = json.loads(request.get_data())
     parsedText = data['parsedText']
-    return jsonify({'parsedText': parsedText, 'hyperPartisan': True})
+    text = handle_url(parsedText)
+    return text
 
-# chrome extension post request
-def handle_url():
-    url = extract()
-    text = parse_text_url(url)
-    
-    return model(text)
+def handle_url(url):
+    text = handleURL(url)
+    return text
+
+# def model(text):
+#     bias = model(text)
+#     return bias
 
 if __name__ == '__main__':
     application.run(debug = True, port=8088)
