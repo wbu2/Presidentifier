@@ -8,7 +8,7 @@ import csv
 class Model:
     
     def __init__(self):
-        path_to_train = "tweets.csv"
+        path_to_train = "training_data.csv"
         training = pd.read_csv(path_to_train, encoding='utf-8')[['v1', 'v2']]
 
         training = training.drop(training[training['v2'].isnull()].index)
@@ -30,7 +30,7 @@ class Model:
         self.svm_model_linear = SVC(kernel = 'linear', C = 1).fit(tfidf_features, label)
         
     def predict(self, str):
-        path_to_test = 'test_tweet.csv'
+        path_to_test = 'testing_data.csv'
         
         with open(path_to_test, mode='w') as csv_file:
             fieldnames = ['v1','v2']
