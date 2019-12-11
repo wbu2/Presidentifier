@@ -45,6 +45,6 @@ class Model:
         user_tweets = list(tweet)
         test_data = self.tfidf.transform(user_tweets)
         svm_predictions = self.svm_model_linear.predict(test_data)
-        print(svm_predictions[0])
+        return(svm_predictions[0])
        # return self.svm_model_linear.predict(test_data)
 
