@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from model import model
+from webscraper import parse_text_url
 
 application = Flask(__name__)
 
@@ -41,6 +42,12 @@ def handle_json():
     parsedText = data['parsedText']
     return jsonify({'parsedText': parsedText, 'hyperPartisan': True})
 
+# chrome extension post request
+def handle_url():
+    url = extract()
+    text = parse_text_url(url)
+    
+    return model(text)
 
 if __name__ == '__main__':
     application.run(debug = True, port=8088)
