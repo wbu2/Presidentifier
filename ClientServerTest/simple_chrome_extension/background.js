@@ -3,6 +3,8 @@ console.log('background running');
 chrome.browserAction.onClicked.addListener(function() {
     alert('button clicked');
 
+    var currentURL = window.location.href;
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "http://127.0.0.1:8088/json", true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -11,7 +13,11 @@ chrome.browserAction.onClicked.addListener(function() {
         alert('got response');
       }
     }
-    xhr.send("parsedText=Donald Trump is seeking reelection. I beileve he should win");
+    // var jsonObject = { "parsedText": currentURL};
+    var jsonObject = { "parsedText": "TEST"};
+    var data = JSON.stringify(jsonObject);
+    alert(currentURL);
+    xhr.send(data);
     // chrome.tabs.executeScript(null, {file: 'post.js'})
   });
 
