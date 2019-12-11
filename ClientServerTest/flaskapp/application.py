@@ -1,10 +1,10 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from model import model
 
 application = Flask(__name__)
 
 
-@application.route('/', methods=['GET'])
+""" @application.route('/', methods=['GET'])
 def home_page():
     return will_stuff
 
@@ -12,9 +12,11 @@ def home_page():
 @application.route('/website_input', methods=['POST'])
 def handle_website_input():
     # grab the input
-    return model(inp)
+    return model(inp) """
+@application.route('/')
+def hello_world():
+    return 'Hello, World! Amrith'
 
-@app.route('/hyper_partisan', methods=['POST', 'GET'])
 def hyper_partisan():
     if request.method == 'POST':
         input = request.form.get('text')
@@ -25,9 +27,9 @@ def hyper_partisan():
     <input type = "submit">
     </form>'''
 
-@app.route('/homepage', methods = ['POST', 'GET'])
+@application.route('/homepage', methods = ['POST', 'GET'])
 def fetch_homepage():
-    return render_template("home.html")
+    return render_template("index.html")
 
 
 @application.route('/json', methods = ['POST'])
