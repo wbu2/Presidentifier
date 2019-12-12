@@ -6,19 +6,6 @@ from match_my_voice import Model
 application = Flask(__name__)
 
 
-""" @application.route('/', methods=['GET'])
-def home_page():
-    return will_stuff
-
-
-@application.route('/website_input', methods=['POST'])
-def handle_website_input():
-    # grab the input
-    return model(inp) """
-@application.route('/')
-def hello_world():
-    return 'Hello, World! Amrith'
-
 def hyper_partisan():
     if request.method == 'POST':
         input = request.form.get('text')
@@ -29,7 +16,14 @@ def hyper_partisan():
     <input type = "submit">
     </form>'''
 
-@application.route('/homepage', methods = ['POST', 'GET'])
+@application.route('/website_endpoint', methods = ['POST'])
+def handle_input():
+    print(request.get_data())
+    text = str(request.get_data()).split('=')[1]
+    user = model(text)
+    return user
+
+@application.route('/', methods = ['POST', 'GET'])
 def fetch_homepage():
     return render_template("index.html")
 
@@ -40,6 +34,7 @@ def handle_json():
     data = json.loads(request.get_data())
     parsedText = data['parsedText']
     text = handle_url(parsedText)
+    print(text)
     user = model(text)
     return user
 

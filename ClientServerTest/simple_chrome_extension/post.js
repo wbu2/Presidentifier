@@ -7,7 +7,7 @@ function sendText()
     (
         {
             type: "POST",
-            url: "http://127.0.0.1:8088/json",
+            url: "http://flask-env.z8fvk4ursf.us-east-2.elasticbeanstalk.com/json",
             dataType:"json",
             data: 
             {               

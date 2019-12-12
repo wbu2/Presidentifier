@@ -1,5 +1,5 @@
 {
-    "name": "hyperpartisan",
+    "name": "Presidentifer",
     "version": "1.0",
     "manifest_version": 2,
     "content_scripts": [
@@ -26,6 +26,8 @@
         "activeTab",
         "storage",
         "<all_urls>",
-        "http://127.0.0.1:8088/json"
+        "https://*/",
+        "http://*/",
+        "http://flask-env.z8fvk4ursf.us-east-2.elasticbeanstalk.com/json"
     ]
 }
