@@ -1,3 +1,3 @@
-# Text2Question
+# Presidentifier
 
-we need a better name lol
+Predicts which 2020 Democratic Presidential Candidate a given text most aligns with.
