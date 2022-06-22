@@ -29,7 +29,7 @@ jsonschema==2.6.0
 lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
-numpy==1.17.4
+numpy==1.22.0
 pandas==0.25.3
 pathspec==0.5.9
 pyasn1==0.4.8
